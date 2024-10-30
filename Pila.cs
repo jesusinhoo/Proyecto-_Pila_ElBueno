@@ -39,12 +39,13 @@ namespace Proyecto__Pila_ElBueno
 
         }
 
-        public void PrintStack()
+        public bool Print()
         {
             //Imprime la lista
             if (Empty())
             {
                 Console.WriteLine("La pila esta vacia.");
+                return false;
             }
 
             Nodo current = Inicio;
@@ -57,38 +58,37 @@ namespace Proyecto__Pila_ElBueno
             }
 
             Console.ReadKey();
+            return true;
         }
 
         public bool Push(int num)
         {
-            if (this.Full())
+            if (!Full())
             {
-                return false;
-            }
-
-            Nodo nuevo = new Nodo(num);
-
-            if (Inicio == null)
-            {
-                Inicio = nuevo;
-                Tope++;
+                Nodo nuevo = new Nodo(num);
+                nuevo.Sig = Inicio;  
+                Inicio = nuevo;      
+                Tope++;              
+                return true;
             }
             else
             {
-                Nodo act = Inicio;
-                while (act.Sig != null)
-                    act = act.Sig;
-                act.Sig = nuevo;
-
+                Console.WriteLine("La pila esta llena.");
+                return false;
             }
-            return false;
-
         }
-        public void Pop()
+        public int Pop()
         {
-            //Regresa el número sacado de la pila
-            //Si la pila está vacía regresa -1
+            if (Empty())
+            {
+                Console.WriteLine("La pila está vacía.");
+                return -1; 
+            }
 
+            int valor = Inicio.Valor;
+            Inicio = Inicio.Sig; 
+            Tope--;              
+            return valor;
         }
     }
 }

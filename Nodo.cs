@@ -11,7 +11,7 @@ namespace Proyecto__Pila_ElBueno
         private int valor;
         private Nodo sig;
 
-        public int Valor { get => valor; set => Valor = value; }
+        public int Valor { get => valor; set => valor = value; }
         internal Nodo Sig { get => sig; set => sig = value; }
 
         public Nodo(int valor)

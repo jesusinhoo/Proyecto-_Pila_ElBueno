@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,9 +11,7 @@ namespace Proyecto__Pila_ElBueno
     {
         static void Main(string[] args)
         {
-
-            int max = 0;
-            Pila nuevaPila = new Pila(max);
+            Pila nuevaPila = null;
             int wh = 5;
 
             while (wh == 5)
@@ -33,28 +32,45 @@ namespace Proyecto__Pila_ElBueno
 
                 if (opc == 1)
                 {
-                    Console.WriteLine("Ingresa el tamaño:");
-                    int tamaño = int.Parse(Console.ReadLine());
-                    max = tamaño;
+                    Console.Clear();
+                    if (nuevaPila == null)
+                    {
+                        Console.WriteLine("Ingresa el tamaño:");
+                        int tamaño = int.Parse(Console.ReadLine());
+                        nuevaPila = new Pila(tamaño);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Tamaño de la pila ya establecido.");
+                    }
+                    Console.ReadKey();
                 }
                 else if (opc == 2)
                 {
+                    Console.Clear();
                     Console.WriteLine("Ingresa el valor a agregar: ");
                     int nuevoValor = int.Parse(Console.ReadLine());
-                    Console.WriteLine(nuevaPila.Push(nuevoValor));
+                    nuevaPila.Push(nuevoValor);
                 }
                 else if (opc == 3)
                 {
-
+                    Console.Clear();
+                    nuevaPila.Pop();
+                    Console.ReadKey();
                 }
                 else if (opc == 4)
                 {
-                    Console.WriteLine("Elementos de la pila: ");
-                    nuevaPila.PrintStack();
+                    Console.Clear();
+                    nuevaPila.Print();
+                    Console.ReadKey();
                 }
                 else if (opc == 5)
                 {
-
+                    Console.Clear();
+                    Console.WriteLine("Saliendo...");
+                    Console.WriteLine("Presiona enter...");
+                    wh = 0;
+                    Console.ReadKey();
                 }
 
             }
