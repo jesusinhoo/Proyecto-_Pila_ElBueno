@@ -48,13 +48,13 @@ namespace Proyecto__Pila_ElBueno
                 return false;
             }
 
-            Nodo current = Inicio;
+            Nodo actual = Inicio;
             Console.WriteLine("Elementos en la pila:");
 
-            while (current != null)
+            while (actual != null)
             {
-                Console.WriteLine(current.Valor);
-                current = current.Sig;
+                Console.WriteLine(actual.Valor);
+                actual = actual.Sig;
             }
 
             Console.ReadKey();
