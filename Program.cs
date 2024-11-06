@@ -55,13 +55,19 @@ namespace Proyecto__Pila_ElBueno
                 else if (opc == 3)
                 {
                     Console.Clear();
-                    nuevaPila.Pop();
+                    Console.WriteLine(nuevaPila.Pop());
                     Console.ReadKey();
                 }
                 else if (opc == 4)
                 {
+                    if (nuevaPila != null) 
+                    { 
                     Console.Clear();
                     nuevaPila.Print();
+                    Console.ReadKey();
+                    }
+                    else
+                        Console.WriteLine("La pila esta vacia.");
                     Console.ReadKey();
                 }
                 else if (opc == 5)

@@ -47,18 +47,21 @@ namespace Proyecto__Pila_ElBueno
                 Console.WriteLine("La pila esta vacia.");
                 return false;
             }
-
-            Nodo actual = Inicio;
-            Console.WriteLine("Elementos en la pila:");
-
-            while (actual != null)
+            else
             {
-                Console.WriteLine(actual.Valor);
-                actual = actual.Sig;
-            }
 
-            Console.ReadKey();
-            return true;
+                Nodo actual = Inicio;
+                Console.WriteLine("Elementos en la pila:");
+
+                while (actual != null)
+                {
+                    Console.WriteLine(actual.Valor);
+                    actual = actual.Sig;
+                }
+
+                Console.ReadKey();
+                return true;
+            }
         }
 
         public bool Push(int num)
